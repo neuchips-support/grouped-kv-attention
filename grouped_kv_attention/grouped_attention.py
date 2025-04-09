@@ -38,16 +38,7 @@ class GroupedKVAttention:
         self.head_dim = getattr(config, "head_dim", self.hidden_size // self.num_heads)
 
         self.num_key_value_groups = self.num_heads // self.num_key_value_heads
-        self.selected_query_idx = self._build_query_index()
 
-    def _build_query_index(self):
-        if self.num_key_value_groups == 1:
-            return None
-        idx = []
-        for i in range(self.num_key_value_groups):
-            selected = [t * self.num_key_value_groups + i for t in range(self.num_key_value_heads)]
-            idx.append(torch.IntTensor(selected))
-        return idx
 
     def grouped_kv_attention_forward(
             self,

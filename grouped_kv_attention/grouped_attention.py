@@ -63,7 +63,7 @@ class GroupedKVAttention:
         
 
         if self.num_key_value_groups != 1 and query_states.shape[2] == 1:
-            # print("kevin attn qk")
+           
             attn_weights = torch.zeros(query_states.shape[0], query_states.shape[1], query_states.shape[2], key_states.shape[2])
             
             for i in range(0, self.num_key_value_heads):
@@ -85,7 +85,7 @@ class GroupedKVAttention:
 
         
         if self.num_key_value_groups != 1 and query_states.shape[2] == 1:
-            # print("kevin_attn")
+            
             attn_output = torch.zeros(attn_weights.shape[0], attn_weights.shape[1], attn_weights.shape[2], value_states.shape[3])
         
             for i in range(0, self.num_key_value_heads):

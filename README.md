@@ -2,7 +2,8 @@
   <img src="https://github.com/neuchips-support/grouped-kv-attention/blob/main/repo-logo.png" width="ˋ480">
 </div>
 
-**grouped-kv-attention** is a lightweight monkey patch for HuggingFace Transformers that replaces the default `eager_attention_forward` with an optimized grouped attention implementation.
+**grouped-kv-attention** is a high-efficiency monkey-patch attention implementation tailored for HuggingFace Transformers on CPU environments — especially **those lacking AVX-512** instruction support. It improves token-by-token generation latency using grouped-query optimizations that better match the memory and vectorization characteristics of common x86 processors.
+
 
 ## ✨ Features
 

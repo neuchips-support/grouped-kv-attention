@@ -34,12 +34,7 @@ config = AutoConfig.from_pretrained("meta-llama/Llama-3.1-8B-Instruct")
 patch_llama_attention(config)
 ```
 
-Or use model-specific patch:
 
-```python
-from grouped_kv_attention import patch_mistral_attention
-patch_mistral_attention()
-```
 
 ## 🧠 Supported Models
 

@@ -16,7 +16,7 @@
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/yourname/grouped-kv-attention.git
+git clone https://github.com/neuchips-support/grouped-kv-attention.git
 cd grouped-kv-attention
 pip install .
 ```

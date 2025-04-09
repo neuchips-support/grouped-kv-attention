@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="http://pf-d01.it.neuchips.ai:3000/kevin_kuo/grouped-attn-cpu/src/branch/main/repo-logo.png" width="240">
+  <img src="https://github.com/neuchips-support/grouped-kv-attention/blob/main/repo-logo.png" width="240">
 </div>
 
 # 🧠 grouped-kv-attention

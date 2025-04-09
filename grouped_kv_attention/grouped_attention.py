@@ -60,25 +60,7 @@ class GroupedKVAttention:
         dropout: float = 0.0,
         **kwargs,
     ):
-        # key_states = repeat_kv(key, module.num_key_value_groups)
-        # value_states = repeat_kv(value, module.num_key_value_groups)
-
-        # attn_weights = torch.matmul(query_states, key_states.transpose(2, 3)) * scaling
-
-
-
-        # if module.num_key_value_groups != 1:
-            
-        #     attn_weights = torch.zeros(query.shape[0], query.shape[1], query.shape[2], key_states.shape[2], dtype=query.dtype)
-            
-        #     for i in range(0, self.num_key_value_groups):  
-        #         attn_weights[:, self.selected_query_idx[i], :, :] =(torch.matmul(query[:, self.selected_query_idx[i], :, :], key_states.transpose(2, 3))/ math.sqrt(self.head_dim))
-        # else:
-        #     key_states = repeat_kv(key_states, self.num_key_value_groups)
-        #     value_states = repeat_kv(value_states, self.num_key_value_groups)
-
-        #     attn_weights = torch.matmul(query, key_states.transpose(2, 3)) / math.sqrt(self.head_dim)
-
+        
 
         if self.num_key_value_groups != 1 and query_states.shape[2] == 1:
             # print("kevin attn qk")
@@ -102,16 +84,6 @@ class GroupedKVAttention:
        
 
         
-        # if self.num_key_value_groups != 1:
-        #     print("kevin_attn")
-        #     attn_output = torch.zeros(attn_weights.shape[0], attn_weights.shape[1], attn_weights.shape[2], value_states.shape[3], dtype=query_states.dtype)
-            
-        #     for i in range(0, self.num_key_value_groups):
-        #         attn_output[:, self.selected_query_idx[i], :, :] =torch.matmul(attn_weights[:, self.selected_query_idx[i], :, :], value_states)
-                
-        
-        # else:
-        #     attn_output = torch.matmul(attn_weights, value_states)
         if self.num_key_value_groups != 1 and query_states.shape[2] == 1:
             # print("kevin_attn")
             attn_output = torch.zeros(attn_weights.shape[0], attn_weights.shape[1], attn_weights.shape[2], value_states.shape[3])

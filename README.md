@@ -1,8 +1,6 @@
 <div align="center">
-  <img src="https://github.com/neuchips-support/grouped-kv-attention/blob/main/repo-logo.png" width="240">
+  <img src="https://github.com/neuchips-support/grouped-kv-attention/blob/main/repo-logo.png" width="ˋ480">
 </div>
-
-# 🧠 grouped-kv-attention
 
 **grouped-kv-attention** is a lightweight monkey patch for HuggingFace Transformers that replaces the default `eager_attention_forward` with an optimized grouped attention implementation.
 

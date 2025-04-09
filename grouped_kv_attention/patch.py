@@ -1,4 +1,4 @@
-from grouped_kv_attention.grouped import GroupedKVAttention
+from grouped_kv_attention.grouped_attention import GroupedKVAttention
 
 def patch_llama_attention(config=None):
     from transformers.models.llama import modeling_llama

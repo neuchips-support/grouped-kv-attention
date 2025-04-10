@@ -1,9 +1,13 @@
 <div align="center">
-  <img src="https://github.com/neuchips-support/grouped-kv-attention/blob/main/repo-logo.png" width="ˋ480">
+  <img src="https://github.com/neuchips-support/grouped-kv-attention/blob/main/img/repo-logo.png" width="ˋ480">
 </div>
 
 **grouped-kv-attention** is a high-efficiency monkey-patch attention implementation tailored for HuggingFace Transformers on CPU environments — especially **those lacking AVX-512** instruction support. It improves token-by-token generation latency using grouped-query optimizations that better match the memory and vectorization characteristics of common x86 processors.
 
+
+<div align="center">
+  <img src="https://github.com/neuchips-support/grouped-kv-attention/blob/main/img/benchmark_result.png" width="ˋ480">
+</div>
 
 ## ✨ Features
 

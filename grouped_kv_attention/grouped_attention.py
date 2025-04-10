@@ -21,10 +21,12 @@ def repeat_kv(hidden_states: torch.Tensor, n_rep: int) -> torch.Tensor:
 
 
 class GroupedKVAttention:
-    def __init__(self, config=None, *, num_heads=None, num_kv_heads=None):
-
-        self.hidden_size = config.hidden_size
+    def __init__(self, config=None, *, hidden_size=None, num_heads=None, num_kv_heads=None):
         
+        if(hidden_size):
+            self.hidden_size = hidden_size
+        else:
+            self.hidden_size = config.hidden_size       
 
         if config:
             self.num_heads = config.num_attention_heads
@@ -51,6 +53,10 @@ class GroupedKVAttention:
         dropout: float = 0.0,
         **kwargs,
     ):
+        # print("query_states dtype: ", query_states.dtype)
+        # print("key_states dtype: ", key_states.dtype)
+        # print("value_states dtype: ", value_states.dtype)
+        # query_states = query_states.to(dtype=key_states.dtype)
         
 
         if self.num_key_value_groups != 1 and query_states.shape[2] == 1:
